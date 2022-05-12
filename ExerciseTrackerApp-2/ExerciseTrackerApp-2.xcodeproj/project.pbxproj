@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B513409A2828CF3100FB9A86 /* CalorieDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51340992828CF3100FB9A86 /* CalorieDataViewController.swift */; };
+		B513409C2828D04100FB9A86 /* CalorieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513409B2828D04100FB9A86 /* CalorieData.swift */; };
 		B5643E272818C2F40095CE08 /* CaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5643E262818C2F40095CE08 /* CaloriesViewController.swift */; };
 		B578CADB281538AF00179CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578CADA281538AF00179CEC /* AppDelegate.swift */; };
 		B578CADD281538AF00179CEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578CADC281538AF00179CEC /* SceneDelegate.swift */; };
@@ -19,6 +21,7 @@
 		B578CAFE281538B000179CEC /* ExerciseTrackerApp_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578CAFD281538B000179CEC /* ExerciseTrackerApp_2UITestsLaunchTests.swift */; };
 		B578CB0D281544C700179CEC /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578CB0C281544C700179CEC /* WorkoutViewController.swift */; };
 		B578CB0F281557AB00179CEC /* WorkoutLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B578CB0E281557AB00179CEC /* WorkoutLogs.swift */; };
+		B5A21F9B281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5A21F99281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B51340992828CF3100FB9A86 /* CalorieDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieDataViewController.swift; sourceTree = "<group>"; };
+		B513409B2828D04100FB9A86 /* CalorieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieData.swift; sourceTree = "<group>"; };
 		B5643E262818C2F40095CE08 /* CaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewController.swift; sourceTree = "<group>"; };
 		B578CAD7281538AF00179CEC /* ExerciseTrackerApp-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ExerciseTrackerApp-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B578CADA281538AF00179CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		B578CAFD281538B000179CEC /* ExerciseTrackerApp_2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTrackerApp_2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B578CB0C281544C700179CEC /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		B578CB0E281557AB00179CEC /* WorkoutLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLogs.swift; sourceTree = "<group>"; };
+		B5A21F9A281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExerciseTrackerDatabase.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,15 +112,18 @@
 			isa = PBXGroup;
 			children = (
 				B578CADA281538AF00179CEC /* AppDelegate.swift */,
+				B513409B2828D04100FB9A86 /* CalorieData.swift */,
 				B578CADC281538AF00179CEC /* SceneDelegate.swift */,
 				B578CADE281538AF00179CEC /* ViewController.swift */,
 				B578CB0C281544C700179CEC /* WorkoutViewController.swift */,
 				B5643E262818C2F40095CE08 /* CaloriesViewController.swift */,
 				B578CB0E281557AB00179CEC /* WorkoutLogs.swift */,
+				B51340992828CF3100FB9A86 /* CalorieDataViewController.swift */,
 				B578CAE0281538AF00179CEC /* Main.storyboard */,
 				B578CAE3281538B000179CEC /* Assets.xcassets */,
 				B578CAE5281538B000179CEC /* LaunchScreen.storyboard */,
 				B578CAE8281538B000179CEC /* Info.plist */,
+				B5A21F99281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodeld */,
 			);
 			path = "ExerciseTrackerApp-2";
 			sourceTree = "<group>";
@@ -269,7 +278,10 @@
 			files = (
 				B5643E272818C2F40095CE08 /* CaloriesViewController.swift in Sources */,
 				B578CB0D281544C700179CEC /* WorkoutViewController.swift in Sources */,
+				B513409A2828CF3100FB9A86 /* CalorieDataViewController.swift in Sources */,
+				B5A21F9B281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodeld in Sources */,
 				B578CADF281538AF00179CEC /* ViewController.swift in Sources */,
+				B513409C2828D04100FB9A86 /* CalorieData.swift in Sources */,
 				B578CADB281538AF00179CEC /* AppDelegate.swift in Sources */,
 				B578CB0F281557AB00179CEC /* WorkoutLogs.swift in Sources */,
 				B578CADD281538AF00179CEC /* SceneDelegate.swift in Sources */,
@@ -610,6 +622,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B5A21F99281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5A21F9A281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodel */,
+			);
+			currentVersion = B5A21F9A281D21740090A581 /* ExerciseTrackerDatabase.xcdatamodel */;
+			path = ExerciseTrackerDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B578CACF281538AF00179CEC /* Project object */;
 }

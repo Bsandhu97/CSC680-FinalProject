@@ -6,8 +6,12 @@
 //
 
 import Foundation
-
+import CoreData
 import UIKit
+
+struct Calories{
+    let caloriesCount: Double
+}
 
 class CaloriesViewController: UIViewController{
     
@@ -29,13 +33,49 @@ class CaloriesViewController: UIViewController{
     @IBOutlet weak var feetTextField: UITextField!
     @IBOutlet weak var inchesTextField: UITextField!
     
+    private lazy var persistentContainer: NSPersistentContainer = {
+        let persistentContainer = NSPersistentContainer(name: "ExerciseTrackerDatabase")
+        persistentContainer.loadPersistentStores{(_, error: Error?) in
+            if let error = error {
+                fatalError("ERROR: Persistance Storage not loaded")
+            }
+        }
+        return persistentContainer
+    }()
+    
+    private var calories: [Calories] = []
+    
+    @IBAction func CalorieDataTransition(_ sender: Any) {
+        print("Calorie Data Pressed");
+       //        self.performSegue(withIdentifier: "WorkoutPageSegue", sender: self)
+    }
+    
     @IBAction func enteredData(_ sender: Any) {
-        guard let dailyCalories = Int(caloriesTextField.text!) else{
+        guard let dailyCalories = Double(caloriesTextField.text!) else{
             caloriesLabel.text = "ERROR: Not a valid entry";
             return;
         }
+        
+        let request = CaloriesEntity.fetchRequest();
+        let context = persistentContainer.viewContext;
+        
+//        if let result = try? context.fetch(request){
+//            for object in result{
+//                context.delete(object) //delete entry
+//
+//            }
+//        }
+        
+        let managedObject = CaloriesEntity(context: context)
+        managedObject.calorieCount = dailyCalories;
+        
+        do{
+            try context.save()
+        }
+        catch{
+            print(error)
+        }
         caloriesLabel.text = "Last Entered Daily Calories:  \(dailyCalories)";
-        savedCalories = dailyCalories;
     }
 
     @IBAction func calculateCalories(_ sender: Any) {
@@ -57,21 +97,38 @@ class CaloriesViewController: UIViewController{
         }
         
         let total = calculatedCalories(cmHeight: cmHeight, userWeight: userWeight, userAge: userAge)
-        
+//
+//        let request = CaloriesEntity.fetchRequest();
+//        let context = persistentContainer.viewContext;
+//
+//        if let result = try? context.fetch(request){
+//            for object in result{
+//                context.delete(object) //delete entry
+//            }
+//        }
+//
+//        let managedObject = CaloriesEntity(context: context)
+//        managedObject.calorieCount = total;
+//
+//        do{
+//            try context.save()
+//        }
+//        catch{
+//            print(error)
+//        }
         calculatedLabel.text = "Daily Calories Intake Calculated: \(total)";
     }
     
     override func viewDidLoad() {
-        print("Transition Complete!!!!!!!!!!!!!!!!!!!!!");
+        //print("Transition Complete!!!!!!!!!!!!!!!!!!!!!");
         super.viewDidLoad()
-        //print(enteredCalories.text);
-        caloriesLabel.text = "Last Entered Daily Calories: \(savedCalories)";
-        
+    
         //Daily Calories PlaceHolder Text
         caloriesTextField.attributedPlaceholder = NSAttributedString(
         string: "Enter Daily Calories",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
         )
+        loadLastCalories();
         
         //Weight PlaceHolder Text
         weightTextField.attributedPlaceholder = NSAttributedString(
@@ -98,6 +155,8 @@ class CaloriesViewController: UIViewController{
         )
     }
     
+   
+    
     func convertHeightToCm(feet :Double, inches :Double) -> Double {
         let feetCm = feet * 30.48
         let inchesCm = inches * 2.54
@@ -121,6 +180,37 @@ class CaloriesViewController: UIViewController{
             return totalCalcualtedCalories;
         }
     }
+    
+    func loadLastCalories() {
+        let request = CaloriesEntity.fetchRequest();
+        let context = persistentContainer.viewContext
+        //calories.append(calorie);
+        
+        do{
+            let result = try context.fetch(request)
+            let calorieItem: [Calories] = result.compactMap{(dailyCalorieEntry: CaloriesEntity) in
+                let caloriesCounts = dailyCalorieEntry.calorieCount
+                return Calories(caloriesCount: caloriesCounts)
+            }
+            self.calories = calorieItem;
+           
+        }catch{
+            print(error)
+        }
+        let calorieNum = (calories.count - 1)
+        if(calorieNum <= -1){
+            caloriesLabel.text = "Last Entered Daily Calories: No Data";
+        }
+        else{
+            caloriesLabel.text = "Last Entered Daily Calories:  \(calories[calorieNum].caloriesCount)";
+        }
+    }
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard segue.destination is CalorieDataViewController else {
+                return
+            }
+        }
     
 }
 
