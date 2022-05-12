@@ -1,7 +1,8 @@
 # CSC680-FinalProject - Exercise Tracker App
-- Team Members: 
+- Team Member: 
 
     Bhagdeep Sandhu **GitHub:** Bsandhu97
+   
 - **Introduction:**
 
      When i was asked to think of a app i thought that could be improved i immeditaly thought of Google's and Samsungs health app. As their apps can be annoying to use      as someone that just wants to log in their exercises, calorie intake, sleep schedule, etc. Since to log in values for each of those tables, we have to go through      so many screens and it can be tedious at times. The overall desgin of the apps seems to be based on smartwatches and phones, where they would draw in data from        them on when you are exercising, moving, sleeping, etc, and then calucalte the values for the tables. This is something i didnt like, as my smartwatch wasnt            always accurate on when i was working out, or it would log in false data that i would need to delete or change. 
@@ -11,7 +12,7 @@
 - **Must Have Features:**
     - *Workouts:*
     
-         User can add workouts, delete workouts, and mark them as done. They can add workouts thru the button in the top right of the screen, a pop up would then be            shown asking for title of the workout. To delete, the user would need to swipe the workout to delete to the left. To mark the workout as done, the user would          just need to tap on the workout. 
+         Users can add new workouts, delete workouts, and mark them as done. They can add workouts thru the button in the top right of the screen, a pop up would then          be shown asking for title of the workout. To delete, the user would need to swipe the workout to delete to the left. To mark the workout as done, the user              would just need to tap on the workout. 
          
     - *Daily Calories:*
 
@@ -19,7 +20,8 @@
        
     - *Calorie Calculator:*
     
-         User can input their height, weight, and age to find how much calories they would need to eat just to maintain their current weight. 
+         User can input their height, weight, age, and gender to find how much calories they would need to eat just to maintain their current weight. 
+         The gender field is a switch, that must be green if you are a male, and off if you arent. 
          Their daily calorie needs would be displayed at the bottom of all the text fields.
          If the user fails to fill any of the text fields (other than the inches text field), the calcultor will produce a error to the user with a correction message
          
