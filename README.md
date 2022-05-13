@@ -2,6 +2,10 @@
 - Team Member: 
 
     Bhagdeep Sandhu **GitHub:** Bsandhu97
+    
+- How To Run:
+    
+    After Cloning the repository, Open the folder ExerciseTrackerApp-2 in Xcode. It may not allow you to open the folder CSC680-FinalProject to Xcode. Then just select run
    
 - **Introduction:**
 
